@@ -26,7 +26,8 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git add last_run.txt
+         git add last_run.txt
           git commit -m "Automated daily commit at $(date)" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/YOUR_USERNAME/YOUR_REPO.git
+          git pull --rebase origin main  # FIX: Pull latest changes first
+          git push origin main  # Push after pulling
 
