@@ -28,4 +28,5 @@ jobs:
         run: |
           git add last_run.txt
           git commit -m "Automated daily commit at $(date)" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/YOUR_USERNAME/YOUR_REPO.git
+
